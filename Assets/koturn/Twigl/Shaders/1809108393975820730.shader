@@ -1,0 +1,279 @@
+Shader "koturn/Twigl/1809108393975820730"
+{
+    Properties
+    {
+        // ------------------------------------------------------------
+        [Header(Lighting Parameters)]
+        [Space(8)]
+
+        [KeywordEnum(Unity Lambert, Unity Blinn Phong, Unity Standard, Unity Standard Specular, Unlit)]
+        _Lighting ("Lighting method", Int) = 2
+
+        _Glossiness ("Smoothness", Range(0.0, 1.0)) = 0.5
+        _Metallic ("Metallic", Range(0.0, 1.0)) = 0.0
+
+        _SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1.0)
+        _SpecPower ("Specular Power", Range(0.0, 128.0)) = 16.0
+
+
+        // ------------------------------------------------------------
+        [Header(Rendering Parameters)]
+        [Space(8)]
+
+        [ToggleOff(_FORWARDADD_OFF)]
+        _ForwardAdd ("Enable ForwardAdd Pass", Int) = 1
+
+        [Enum(UnityEngine.Rendering.CullMode)]
+        _Cull ("Culling Mode", Int) = 2  // Default: Back
+
+        [Toggle(_FLIPNORMAL_ON)]
+        _FlipNormal ("Flip Backface Normal", Int) = 1
+
+        [HideInInspector]
+        [Enum(Koturn.Twigl.Enums.RenderingMode)]
+        _Mode ("Rendering Mode", Int) = 0
+
+        [Toggle(_ALPHATEST_ON)]
+        _AlphaTest ("Alpha test", Int) = 0
+
+        _Cutoff ("Alpha Cutoff", Range (0.0, 1.0)) = 0.5
+
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _SrcBlend ("Blend Source Factor", Int) = 1  // Default: One
+
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _DstBlend ("Blend Destination Factor", Int) = 0  // Default: Zero
+
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _SrcBlendAlpha ("Blend Source Factor for Alpha", Int) = 1  // Default: One
+
+        [Enum(UnityEngine.Rendering.BlendMode)]
+        _DstBlendAlpha ("Blend Destination Factor for Alpha", Int) = 0  // Default: Zero
+
+        [Enum(UnityEngine.Rendering.BlendOp)]
+        _BlendOp ("Blend Operation", Int) = 0  // Default: Add
+
+        [Enum(UnityEngine.Rendering.BlendOp)]
+        _BlendOpAlpha ("Blend Operation for Alpha", Int) = 0  // Default: Add
+
+        [Enum(Off, 0, On, 1)]
+        _ZWrite ("ZWrite", Int) = 1  // Default: On
+
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+        _ZTest ("ZTest", Int) = 4  // Default: LEqual
+
+        [Enum(False, 0, True, 1)]
+        _ZClip ("ZClip", Int) = 1  // Default: True
+
+        _OffsetFactor ("Offset Factor", Range(-1.0, 1.0)) = 0
+        _OffsetUnit ("Offset Units", Range(-1.0, 1.0)) = 0
+
+        [ColorMask]
+        _ColorMask ("Color Mask", Int) = 15  // Default: RGBA
+
+        [Enum(Off, 0, On, 1)]
+        _AlphaToMask ("Alpha To Mask", Int) = 0  // Default: Off
+
+
+        // ------------------------------------------------------------
+        [Header(Stencil Parameters)]
+        [Space(8)]
+
+        [IntRange]
+        _StencilRef ("Stencil Reference Value", Range(0, 255)) = 0
+
+        [IntRange]
+        _StencilReadMask ("Stencil ReadMask Value", Range(0, 255)) = 255
+
+        [IntRange]
+        _StencilWriteMask ("Stencil WriteMask Value", Range(0, 255)) = 255
+
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+        _StencilComp ("Stencil Compare Function", Int) = 8  // Default: Always
+
+        [Enum(UnityEngine.Rendering.StencilOp)]
+        _StencilPass ("Stencil Pass", Int) = 0  // Default: Keep
+
+        [Enum(UnityEngine.Rendering.StencilOp)]
+        _StencilFail ("Stencil Fail", Int) = 0  // Default: Keep
+
+        [Enum(UnityEngine.Rendering.StencilOp)]
+        _StencilZFail ("Stencil ZFail", Int) = 0  // Default: Keep
+    }
+
+    // Blend Mode  | RenderQueue   | RenderType          | ZWrite | SrcBlend     | DstBlend              | AlphaTest
+    // ------------|---------------|---------------------|--------|--------------|-----------------------|----------
+    // Opaque      | "Geometry"    | "Opaque"            | On     | One (1)      | Zero (0)              | x
+    // Cutout      | "AlphaTest"   | "TransparentCutout" | On     | One (1)      | Zero (0)              | o
+    // Fade        | "Transparent" | "Transparent"       | Off    | SrcAlpha (5) | OneMinusSrcAlpha (10) | x
+    // Transparent | "Transparent" | "Transparent"       | Off    | One (1)      | OneMinusSrcAlpha (10) | x
+
+    SubShader
+    {
+        Tags
+        {
+            "RenderType" = "Opaque"
+            "Queue" = "Geometry"
+            "PreviewType" = "Plane"
+            // "DisableBatching" = "True"
+            // "IgnoreProjector" = "True"
+            "VRCFallback" = "StandardCutout"
+        }
+
+        BlendOp [_BlendOp], [_BlendOpAlpha]
+        ZTest [_ZTest]
+        ZClip [_ZClip]
+        Offset [_OffsetFactor], [_OffsetUnit]
+        ColorMask [_ColorMask]
+        AlphaToMask [_AlphaToMask]
+
+        Stencil
+        {
+            Ref [_StencilRef]
+            ReadMask [_StencilReadMask]
+            WriteMask [_StencilWriteMask]
+            Comp [_StencilComp]
+            Pass [_StencilPass]
+            Fail [_StencilFail]
+            ZFail [_StencilZFail]
+        }
+
+        CGINCLUDE
+        #pragma target 3.0
+
+        #pragma only_renderers d3d9 d3d11 d3d11_9x glcore gles gles3 metal vulkan xboxone ps4 n3ds wiiu switch
+        #pragma fragmentoption ARB_precision_hint_fastest
+
+        #pragma multi_compile_instancing
+
+
+        void geekest(inout half4 o, float2 FC, float2 r, float t);
+        #define GEEKEST geekest
+        #include "TwiglCore.cginc"
+
+
+        /*!
+         * @brief Fragment shader core function in twigl-geekest form.
+         * @param [in,out] o  Output color.
+         * @param [in] FC  Fragment coordinate.
+         * @param [in] r  Resolution.
+         * @param [in] t  Elapsed time in seconds.
+         * @return Color of texel.
+         */
+        void geekest(inout half4 o, float2 FC, float2 r, float t)
+        {
+            // for(float i,g,e,s;++i<85.;o.rgb+=hsv(g*i*.1-.5,e,s/5e2)){vec3 p=vec3((FC.xy-.5*r)/r.y+vec2(0,1.1),g+.1);p.zx*=rotate2D(t*.5);s=2.;for(int i;i++<12;p=vec3(2,5,2)-abs(abs(p)*e-vec3(5,4,4)))s*=e=max(1.02,12./dot(p,p));g+=mod(length(p.xz),p.y)/s;s=log2(s*.2);}
+            for (float i, g, e, s; ++i < 85.; o.rgb += hsv(g * i * .1 - .5, e, s / 5e2)) {
+                vec3 p = vec3((FC.xy - .5 * r) / r.y + vec2(0, 1.1), g + .1);
+                p.zx = mul(rotate2D(t * .5), p.zx);
+                s = 2.;
+                for (int i; i++ < 12; p = vec3(2, 5, 2) - abs(abs(p) * e - vec3(5, 4, 4)))
+                    s *= e = max(1.02, 12. / dot(p, p));
+                g += mod(length(p.xz), p.y) / s;
+                s = log2(s * .2);
+            }
+        }
+        ENDCG
+
+
+        Pass
+        {
+            Name "FORWARD_BASE"
+            Tags
+            {
+                "LightMode" = "ForwardBase"
+            }
+
+            Cull [_Cull]
+            Blend [_SrcBlend] [_DstBlend], [_SrcBlendAlpha] [_DstBlendAlpha]
+            ZWrite [_ZWrite]
+
+            CGPROGRAM
+            #pragma vertex vertTwigl
+            #pragma fragment fragTwigl
+
+            #pragma multi_compile_fwdbase
+            #pragma multi_compile_fog
+            #pragma shader_feature_local_fragment _ _FLIPNORMAL_ON
+            #pragma shader_feature_local_fragment _ _ALPHATEST_ON
+            #pragma shader_feature_local_fragment _LIGHTING_UNITY_LAMBERT _LIGHTING_UNITY_BLINN_PHONG _LIGHTING_UNITY_STANDARD _LIGHTING_UNITY_STANDARD_SPECULAR _LIGHTING_UNLIT
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "FORWARD_ADD"
+            Tags
+            {
+                "LightMode" = "ForwardAdd"
+            }
+
+            Cull [_Cull]
+            Blend One One
+            ZWrite Off
+
+            CGPROGRAM
+            #pragma vertex vertTwigl
+            #pragma fragment fragTwigl
+
+            // #pragma multi_compile_fwdadd
+            #pragma multi_compile_fwdadd_fullshadow
+            #pragma multi_compile_fog
+            #pragma shader_feature_local _ _FORWARDADD_OFF
+            #pragma shader_feature_local_fragment _ _FLIPNORMAL_ON
+            #pragma shader_feature_local_fragment _ _ALPHATEST_ON
+            #pragma shader_feature_local_fragment _LIGHTING_UNITY_LAMBERT _LIGHTING_UNITY_BLINN_PHONG _LIGHTING_UNITY_STANDARD _LIGHTING_UNITY_STANDARD_SPECULAR _LIGHTING_UNLIT
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "DEFERRED"
+            Tags
+            {
+                "LightMode" = "Deferred"
+            }
+
+            Cull [_Cull]
+            Blend Off
+            ZWrite On
+
+            CGPROGRAM
+            #pragma vertex vertTwigl
+            #pragma fragment fragTwigl
+
+            #pragma exclude_renderers nomrt
+
+            #pragma multi_compile_prepassfinal
+            #pragma multi_compile_fog
+            #pragma shader_feature_local_fragment _ _FLIPNORMAL_ON
+            #pragma shader_feature_local_fragment _ _ALPHATEST_ON
+            #pragma shader_feature_local_fragment _LIGHTING_UNITY_LAMBERT _LIGHTING_UNITY_BLINN_PHONG _LIGHTING_UNITY_STANDARD _LIGHTING_UNITY_STANDARD_SPECULAR _LIGHTING_UNLIT
+            ENDCG
+        }
+
+        Pass
+        {
+            Name "SHADOW_CASTER"
+            Tags
+            {
+                "LightMode" = "ShadowCaster"
+            }
+
+            Cull Back
+            Blend Off
+            ZWrite On
+
+            CGPROGRAM
+            #pragma vertex vertTwiglShadowCaster
+            #pragma fragment fragTwiglShadowCaster
+
+            #pragma multi_compile_shadowcaster
+            #pragma multi_compile_fog
+            ENDCG
+        }
+    }
+
+    CustomEditor "Koturn.Twigl.Inspectors.TwiglGUI"
+}
+

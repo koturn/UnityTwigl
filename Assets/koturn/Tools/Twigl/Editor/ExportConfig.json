@@ -1,0 +1,13 @@
+{
+  "Packages": [
+    {
+      "UnityPackageName": "Twigl.unitypackage",
+      "VpmName": "jp.koturn.twigl",
+      "Assets": [
+        {
+          "BasePath": "Assets/koturn/Twigl"
+        }
+      ]
+    }
+  ]
+}

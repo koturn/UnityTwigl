@@ -1,0 +1,15 @@
+{
+  "name": "jp.koturn.twigl",
+  "version": "1.0.0",
+  "displayName": "Twigl",
+  "description": "Port of the works in twigl to Unity shaders.",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/koturn/UnityTwigl",
+  "licensesUrl": "https://github.com/koturn/UnityTwigl/blob/v1.0.0/LICENSE",
+  "license": "MIT",
+  "keywords": ["Shader", "twigl"],
+  "url" : "https://github.com/koturn/Twigl/releases/download/v1.0.0/jp.koturn.twigl-1.0.0.zip",
+  "legacyFolders" : {
+    "Assets\\koturn\\Twigl" : "fa3199a00155cfc4daf80a96ab211213"
+  }
+}
