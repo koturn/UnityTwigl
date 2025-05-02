@@ -1,0 +1,1 @@
+vec3 p,q=vec3(0,.4,2);for(float j,i,e,v,u;i++<1e2;o+=log(v)/2e4*vec4(5,6,1,1)+.05/exp(v+e/vec4(-1,4,2,4))){p=q-=vec3((.5*r-FC.xy)/r.y,1)*e;for(j=e=v=6.;j++<20.;e=min(e,max(length(p.xz=abs(mul(rotate2D(j+t/8.),p.xz))-.54)-.01/u,p.y=1.8-p.y)/v))v/=u=min(2.,dot(p,p)),p/=u;}

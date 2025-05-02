@@ -1,0 +1,1 @@
+for(float i,g,e,s;++i<60.;o.rgb+=hsv(e-g,.6,s/8e3)){vec3 p=mul(rotate3D(t,vec3(2,2,sin(t))),vec3((FC.xy-.5*r)/r.y*3.,g-.5));;s=2.;for(int i;i++<9;p=vec3(3,6,1)-abs(abs(p)*e-vec3(4,1,2)))s*=e=max(1.05,6./dot(p,p));g+=mod(length(p.zx),p.y)/s;s=log(s)/g;}
