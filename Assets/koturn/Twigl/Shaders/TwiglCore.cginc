@@ -73,7 +73,7 @@ half4 fragTwigl(v2f_twigl fi) : SV_Target
 #    endif  // defined(USE_FACING_PARAMETER)
 
     half4 mainCol = half4(0.0, 0.0, 0.0, 1.0);
-    GEEKEST(/* inout */ mainCol, fi.uv, float2(1.0, 1.0), _Time.y);
+    GEEKEST(/* inout */ mainCol, float4(fi.uv, 0.0, 1.0), float2(1.0, 1.0), _Time.y);
 
 #    if defined(_ALPHATEST_ON)
     clip(mainCol.a - UNITY_ACCESS_INSTANCED_PROP(Props, _Cutoff));
