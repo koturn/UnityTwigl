@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEditor;
 
 
@@ -19,6 +20,12 @@ namespace Koturn.Twigl.AssetImporters
         /// <see cref="byte"/> array of shader template file.
         /// </summary>
         private static byte[] _templateData;
+        /// <summary>
+        /// <see cref="Regex"/> taht matches "#guidinclude" custom directive.
+        /// </summary>
+        private static readonly Regex _guidIncludeRegex = new Regex(
+            "#guidinclude(\\s+)\"([^\"]+)\"",
+            RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
         /// <summary>
         /// Create ShaderLab source code from specified asset path and shader template file.
@@ -39,6 +46,15 @@ namespace Koturn.Twigl.AssetImporters
                 {
                     line = line.Replace("#SCRIPTNAME#", name)
                         .Replace("#TWIHLSL#", twiSource);
+                    line = _guidIncludeRegex.Replace(line, match =>
+                    {
+                        return new StringBuilder("#include")
+                            .Append(match.Groups[1].Value)
+                            .Append('"')
+                            .Append(AssetDatabase.GUIDToAssetPath(match.Groups[2].Value))
+                            .Append('"')
+                            .ToString();
+                    });
                     sb.AppendLine(line);
                 }
             }

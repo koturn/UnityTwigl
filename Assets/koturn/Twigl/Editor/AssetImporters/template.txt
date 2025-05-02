@@ -149,7 +149,7 @@ Shader "koturn/Twigl/#SCRIPTNAME#"
 
         void geekest(inout half4 o, float4 FC, float2 r, float t);
         #define GEEKEST geekest
-        #include "TwiglCore.cginc"
+        #guidinclude "96390a93c47962d4fa90e82bfe233c22"
 
 
         /*!
