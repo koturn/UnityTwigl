@@ -55,7 +55,7 @@ namespace Koturn.Twigl.AssetImporters
                             .Append('"')
                             .ToString();
                     });
-                    sb.AppendLine(line);
+                    sb.Append(line).Append('\n');
                 }
             }
 
