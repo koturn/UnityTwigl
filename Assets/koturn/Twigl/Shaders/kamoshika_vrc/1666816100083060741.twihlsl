@@ -1,0 +1,2 @@
+// https://x.com/kamoshika_vrc/status/1666816100083060741
+vec2 p=(FC.xy*2.-r)/r.y;p=fract(vec2(log(length(p))-t*.5,atan(p.y,p.x)/PI*3.)*1.5)-.5;float i,a=PI*.5,d=a;p=mul(rotate2D(ceil(atan(p.y,p.x)/a-.5)*a),p);for(;i++<4.;p=mul(rotate2D(a),p))d=d>.1?abs(length(p-.5)-.88):d;o+=d<.1?dot(normalize(vec3(dFdx(d),dFdy(d),0.)),(.577).xxx):.6;

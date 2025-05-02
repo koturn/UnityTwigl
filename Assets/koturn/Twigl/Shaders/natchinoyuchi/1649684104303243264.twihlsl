@@ -1,0 +1,2 @@
+// https://x.com/natchinoyuchi/status/1649684104303243264
+for(float i,e,g,d;i++<1e2;){vec3 q=.0,p=mul(rotate3D(t,++q*sin(t*.5)),vec3((FC.xy/r-.5)*g,g-11.));p.y*=.8;p*=d=e=9./dot(p,p);for(int j;j++<6;p.xz=mul(rotate2D(.5),p.xz))p.z=abs(p.z);e=abs(cos(p.y+t*7.))*sin(sin(p.x*p.z)/1e2-.09)*5.+.5;g+=e/d;o.xyz+=hsv(p.y*.1+t*.6,-i,4e-8/e/e);}

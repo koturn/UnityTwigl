@@ -1,0 +1,2 @@
+// https://x.com/kamoshika_vrc/status/1656260144840478720
+float i,c=15./PI,d=c,g;for(;i++<99.&&d>1e-4;g+=d){vec3 P=mul(rotate3D(.9,FC.wzz),normalize(vec3(FC.xy-r*.5,-r.y)))*g;P.yz+=1.;vec2 I=ceil(P.xz=vec2(log(d=length(P.xz))-t,atan(P.z,P.x))*c);P.xz-=I;d=max(P.y,(.4-abs(fract((fsnoise(I)<.5?-P.z:P.z)-P.x)-.5))*.7*d/c);}o+=9./i;

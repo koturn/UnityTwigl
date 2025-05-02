@@ -1,0 +1,1 @@
+vec3 f=vec3(.2,.4,1.5),p;for(float i,e,g,S,u;i++<50.;o+=exp(e*5e3-sin(vec4(4,3,2,0)*p.z-log(S)))/50.){p=vec3((FC.xy-.5*r)/r.y*g,g)-i/3e4;mat2 M=rotate2D(t/8.);p.yz=mul(mul(M,M),p.yz);p--;p.yx=mul(M,p.yx);S=5.;for(int j;j++<20;p/=u)S/=u=dot(p=2.*clamp(p,-f,f)-p,p);g-=e=p.z/S;}

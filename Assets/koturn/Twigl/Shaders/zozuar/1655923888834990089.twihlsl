@@ -1,0 +1,2 @@
+// https://x.com/zozuar/status/1655923888834990089
+for(float i,g,e,R,S;i++<1e2;o.rgb+=hsv(.25+log(R)/70.,.8,.01)/exp(max(s,e)*1e4)){S=1.;vec3 p=vec3((FC.xy-.5*r)/r.y*g,S-g)-i/3e4;p=vec3(log(R=length(p))-t,e=p.z/R/.6,atan(p.x,p.y)+.1/R);for(;S<6e2;S+=S)e+=pow(abs(dot(sin(p.zxy*S),cos(p*S*FC.wzw))),.15)/S;g+=e*=R*.2;}

@@ -1,0 +1,2 @@
+// https://x.com/Renard_VRC/status/1708895198380757045
+for(float i,l,d,z;i++<99.;o+=exp(-d*5.)*.01*(.9+.7*cos(z+vec4(0,.2,.3,0)))){vec3 P=vec3((FC.xy-r*.5)/r.y,.5)*l;P.z=fract(z=P.z+t*5.)-.5,P.x=cos(mod(atan(P.y,P.x)+z*.2,PI/3.)-PI/6.)*length(P.xy)-2.,l+=d=max(abs(length(P.xz)-.2),.01);}

@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1915755845473706361
+// Who?
+for(float i,z,d;i++<5e1;){vec3 c=vec3(1,2,3),p=z*normalize(FC.rgb*2.-r.xyy),v=p;v.z+=exp(3.-sin(t));p.xy=mul(mat2(cos(p.z*.3+vec4(0,33,11,0))),p.xy);for(d=1.;d<9.;d/=.4)p+=cos((p-t*c*c).yzx*d)/d;z+=d=.01+min(abs(length(p.xy)-6.)*.6,abs(max(v=abs(v=mul(rotate3D(t,c),v))-c.xxy+.3*abs((v=sin(round(v/.3))).yxx*v.zzy),max(v.y,v.z)).x)-.01/length(v))/4.;o.rgb+=exp(c*z*.1)/d;}o/=o+3e3;

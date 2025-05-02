@@ -1,0 +1,2 @@
+// https://x.com/zozuar/status/1639657028946673665
+for(float i,g,e,s;i++<80.;o+=.1/exp(e+3.+sin(vec4(1,1.5,2,0)-log(s)))){vec3 p=vec3((FC.xy*2.-r)/r.y*g,g);mat2 m=rotate2D(t*.2);p.xz=mul(m,p.xz);p.yz=mul(m,p.yz);p.z+=t/PI;p++;s=8.;for(int j;j++<9;p/=e)p=mod(p-1.,2.)-1.,p.xz=mul(rotate2D(PI/4.),p.xz),s/=e=exp(dot(p,p)-1.6);g+=e=length(p)/s;}

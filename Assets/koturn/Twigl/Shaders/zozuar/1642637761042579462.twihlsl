@@ -1,0 +1,2 @@
+// https://x.com/zozuar/status/1642637761042579462
+for(float i,g,l,v,e,k;i++<1e2;o.rgb+=hsv(.2+v*1e2,.8,.01/exp(max(s,e*1e3)))){v=.1;vec3 p=vec3((FC.xy-.5*r)/r.y*g-v,.5-g);k=t;for(int j;j++<5;k=s)v*=l=length(p.xy),p=vec3(log(l)-k,atan(p.y,p.x)/PI*6.,p.z/l+l+l),p.xy=fract(p.xy+p.x)-.5;g+=e=length(p)*v;}

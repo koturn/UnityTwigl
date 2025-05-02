@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1726103550986469869
+// "Vortex"
+vec2 p=(FC.xy*2.-r)/r.y,v;for(float i=.2,l;i<1.;o+=(cos(i*5.+vec4(0,1,2,3))+1.)*(1.+v.y/(l=length(v)+.003))/l/1e2)v=vec2(mod(atan(p.y,p.x)+i+i*t,PI2)-PI,1)*length(p)-i,v.x-=clamp(v.x+=i,-i,i),i+=.05;o=tanh(o);

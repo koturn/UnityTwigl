@@ -1,0 +1,2 @@
+// https://x.com/YoheiNishitsuji/status/1910690548865720813
+float i,e,R,s;vec3 q=0,p,d=vec3((FC.xy-r*.5)/r.x*.7+vec2(0,1.5),1.25);for(q.zy--;i++<60.;){o+=.022-exp(-e*5e2)/(28).xxxx;s=6.;p=q+=d*e*R*.14;p=vec3(log2(R=length(p))-t,exp2(R-p.z/R),atan(p.x,p.y)*1.5);for(e=--p.y;s<3e2;s+=s)e+=dot(cos(p*s),sin(p.xyx*s))/s*.77;}

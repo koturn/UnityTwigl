@@ -147,7 +147,7 @@ Shader "koturn/Twigl/#SCRIPTNAME#"
         #pragma multi_compile_instancing
 
 
-        void geekest(inout half4 o, float4 FC, float2 r, float t);
+        void geekest(inout half4 o, float4 FC);
         #define GEEKEST geekest
         #guidinclude "96390a93c47962d4fa90e82bfe233c22"
 
@@ -156,11 +156,9 @@ Shader "koturn/Twigl/#SCRIPTNAME#"
          * @brief Fragment shader core function in twigl-geekest form.
          * @param [in,out] o  Output color.
          * @param [in] FC  Fragment coordinate.
-         * @param [in] r  Resolution.
-         * @param [in] t  Elapsed time in seconds.
          * @return Color of texel.
          */
-        void geekest(inout half4 o, float4 FC, float2 r, float t)
+        void geekest(inout half4 o, float4 FC)
         {
 #TWIHLSL#
         }

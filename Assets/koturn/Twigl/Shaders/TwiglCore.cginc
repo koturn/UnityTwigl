@@ -6,6 +6,18 @@
 #include "twigl.cginc"
 
 
+//! pseudo frame count.
+static float f = floor(_Time.y / 60.0);
+//! Mouse position.
+static float2 m = float2(0.0, 0.0);
+//! Resolution.
+static float2 r = float2(1280.0, 1280.0);
+//! Sound frequency.
+static float s = 0.0;
+//! Elapse time.
+static float t = _Time.y;
+
+
 /*!
  * @brief G-Buffer data which is output of fragTwigl in deferred rendering pass.
  * @see fragTwigl
@@ -31,7 +43,7 @@ UNITY_INSTANCING_BUFFER_END(Props)
 #endif  // defined(_ALPHATEST_ON)
 
 
-void geekestDefault(inout half4 o, float2 FC, float2 r, float t);
+void geekestDefault(inout half4 o, float4 FC);
 
 #if !defined(GEEKEST)
 #    define GEEKEST geekestDefault
@@ -73,7 +85,7 @@ half4 fragTwigl(v2f_twigl fi) : SV_Target
 #    endif  // defined(USE_FACING_PARAMETER)
 
     half4 mainCol = half4(0.0, 0.0, 0.0, 1.0);
-    GEEKEST(/* inout */ mainCol, float4(fi.uv, 0.0, 1.0), float2(1.0, 1.0), _Time.y);
+    GEEKEST(/* inout */ mainCol, float4(fi.uv * r, 0.0, 1.0));
 
 #    if defined(_ALPHATEST_ON)
     clip(mainCol.a - UNITY_ACCESS_INSTANCED_PROP(Props, _Cutoff));
@@ -143,11 +155,9 @@ fixed4 fragTwiglShadowCaster(v2f_twigl_shadowcaster fi) : SV_Target
  * @brief Default fragment shader core function in twigl-geekest form.
  * @param [in,out] o  Output color.
  * @param [in] FC  Fragment coordinate.
- * @param [in] r  Resolution.
- * @param [in] t  Elapsed time in seconds.
  * @return Color of texel.
  */
-void geekestDefault(inout half4 o, float2 FC, float2 r, float t)
+void geekestDefault(inout half4 o, float4 FC)
 {
     o = half4(0.0, 0.0, 0.0, 1.0);
 }
