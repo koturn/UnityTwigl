@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1917585503630618885
+// "Bitwise"
+for(float i,z,d,f;i++<5e1;o+=exp(-z/vec4(2,9,4,9))/d){vec3 s,p=z*normalize(FC.rgb*2.-r.xyy);p.z-=t;for(d=f=1.;f<1e2;f+=f)d=min(d,dot(s=sin(p*f+vec3(f,-f,0)),s.yzx)/f);z+=d=.004+.5*abs(d);}o=tanh(o/1e3);

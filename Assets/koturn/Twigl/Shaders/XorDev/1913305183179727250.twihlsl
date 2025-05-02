@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1913305183179727250
+// "Whirl"
+vec3 p,v;for(float i,z,d,l;i++<1e2;o+=(cos(p.z+vec4(0,1,2,3))+1.)/d)p=z*normalize(FC.rgb*2.-r.xyy),p.z-=t,p.xy=mul(mat2(cos(p.z*.1+vec4(0,11,33,0))),p.xy),z+=d=(length(v=max(v=cos(p+sin(p.yzx/.3)),v.zxy*.1)))/6.;o=tanh(o/5e3);

@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1917920907235824112
+// "Prisms"
+vec3 v,p;for(float i,z,d;i++<7e1;o+=(cos(p.y+z+vec4(4,6,8,0))+1.2)/d)p=z*normalize(FC.rgb*2.-r.xyy),p.xz-=t,z+=d=.001+length(max(v=cos(p+sin(p/.4+vec3(0,0,t)))+.5,v.yzy*.5))/5.;o=tanh(o/7e3);

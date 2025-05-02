@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1914698293554139442
+// "String Theory"
+vec3 p;for(float i,z,d;i++<1e2;o+=(sin(p.x+t+vec4(0,2,3,0))+1.)/d)p=z*normalize(FC.rgb*2.-r.xyy),p.z-=t,p.xy=mul(mat2(cos(z*.2+t*.1+vec4(0,33,11,0))),p.xy),z+=d=length(cos(p+cos(p.yzx+p.z-t*.2)).xy)/6.;o=tanh(o/5e3);

@@ -338,6 +338,7 @@ typedef float2x2 mat2;
 typedef float3x3 mat3;
 typedef float4x4 mat4;
 #define mod(x, y) ((x) - (y) * floor((x) / (y)))
+#define atan(x, y) atan2(x, y)
 
 
 #endif  // TWIGL_INCLUDED

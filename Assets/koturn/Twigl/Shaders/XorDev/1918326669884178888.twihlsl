@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1918326669884178888
+// "Nebula"
+for(float i,z,d;i++<8e1;){vec3 p=z*normalize(FC.rgb*2.-r.xyy);p.z-=t;p.xy=mul(mat2(cos(z*.2+vec4(0,11,33,0))),p.xy);p.y=abs(p.y);for(d=1.;d<9.;d/=.7)p+=.5*cos(p.yzx*d-t*.2)/d;z+=d=.02+.1*abs(4.-p.y);o+=(cos(p.y+p.x*.1+vec4(1,3,5,3))+1.1)/d;}o=tanh(o/2e3);

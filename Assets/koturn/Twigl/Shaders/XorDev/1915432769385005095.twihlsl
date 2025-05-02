@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1915432769385005095
+// "Ghost Town"
+vec3 a=vec3(0,0,1),q,p=a*t;for(float d,i,l;l++<5e1;d=abs(d)+1e-3,o+=(cos(.1*l+vec4(4,5,6,3))+1.)/d,p-=normalize(FC.rgb*2.-r.xxy)*d)for(q=p,d=-1.-q.y,i=9.;i>.2;i*=.6)q.xz=mul(mat2(8,-6,6,8)*.1,q.xz),d=max(d,min(-max(q=i*.6-abs(mod(q,i+i)-i),-q.y).x,q.z));o=tanh(o/2e4);

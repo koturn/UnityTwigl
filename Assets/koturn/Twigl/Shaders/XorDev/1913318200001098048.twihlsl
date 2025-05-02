@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1913318200001098048
+// "Fusion" in 230 chars of #GLSL:
+vec3 p,v;for(float i,z,d;i++<1e2;o+=(sin((p.z-t*.2)*vec4(3,5,9,4))+1.)/d)p=z*normalize(FC.rgb*2.-r.xyy),p+=.15,v=vec3(atan(p.x,p.y)-t*.1,length(p.xy),p.z/.2-t),z+=d=length(max(v=sin(v*7.+cos(v/.03-t)),v.yzx*.1))/1e2;o=tanh(o/1e5);

@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1915419934328267031
+// "Ether"
+for(float i,z,d;i++<8e1;o+=max(sin(z*.4+t+vec4(6,2,4,0))+.7,.2)/d){vec3 p=z*normalize(FC.rgb*2.-r.xxy);p.z-=5.*t;for(d=1.;d<15.;d/=.6)p+=.6*cos(p.yzx*d-vec3(t*.6,d,t))/d;z+=d=.01+abs(p.y*.3+dot(cos(p),sin(p.yzx*.6))+2.)/3.;}o=tanh(o/2e3);
