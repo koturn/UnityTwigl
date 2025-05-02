@@ -15,6 +15,11 @@ namespace Koturn.Twigl.AssetImporters
         /// GUID of shader template file.
         /// </summary>
         private const string TemplateGuid = "dba61e9f13b91444dbb632fe1fd9fa91";
+        /// <summary>
+        /// GUID of shader directory.
+        /// </summary>
+        private const string ShaderDirGuid = "933a8921bf87e9748abd5e318e6fa71e";
+
 
         /// <summary>
         /// <see cref="byte"/> array of shader template file.
@@ -35,7 +40,12 @@ namespace Koturn.Twigl.AssetImporters
         public static string GenerateShaderSourceFromTemplate(string snippetPath)
         {
             var twiSource = File.ReadAllText(snippetPath);
-            var name = Path.GetFileNameWithoutExtension(snippetPath);
+            var shaderDirPath = AssetDatabase.GUIDToAssetPath(ShaderDirGuid);
+
+            var relPath = snippetPath.Replace(shaderDirPath, string.Empty).TrimStart('/');
+            var lastSepIndex = relPath.LastIndexOf('/');
+            var prefix = lastSepIndex >= 0 ? relPath.Substring(0, lastSepIndex + 1) : string.Empty;
+            var name = prefix + Path.GetFileNameWithoutExtension(relPath);
 
             var sb = new StringBuilder();
             using (var ms = GetTemplateMemoryStream())
