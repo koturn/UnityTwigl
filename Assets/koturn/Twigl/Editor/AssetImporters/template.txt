@@ -160,7 +160,9 @@ Shader "koturn/Twigl/#SCRIPTNAME#"
          */
         void geekest(inout half4 o, float4 FC)
         {
+#line 1
 #TWIHLSL#
+#line 166
         }
         ENDCG
 
