@@ -15,6 +15,22 @@ namespace Koturn.Twigl.Inspectors
     public class TwiglGUI : ShaderGUI
     {
         /// <summary>
+        /// Property name of "_Resolution".
+        /// </summary>
+        private const string PropNameResolution = "_Resolution";
+        /// <summary>
+        /// Property name of "_TimeScale".
+        /// </summary>
+        private const string PropNameTimeScale = "_TimeScale";
+        /// <summary>
+        /// Property name of "_FixTime".
+        /// </summary>
+        private const string PropNameFixTime = "_FixTime";
+        /// <summary>
+        /// Property name of "_FixedTime".
+        /// </summary>
+        private const string PropNameFixedTime = "_FixedTime";
+        /// <summary>
         /// Property name of "_Lighting".
         /// </summary>
         private const string PropNameLighting = "_Lighting";
@@ -196,6 +212,16 @@ namespace Koturn.Twigl.Inspectors
             {
                 base.OnGUI(me, mps);
                 return;
+            }
+
+            EditorGUILayout.LabelField("Basic Parameters", EditorStyles.boldLabel);
+            using (new EditorGUI.IndentLevelScope())
+            using (new EditorGUILayout.VerticalScope(GUI.skin.box))
+            {
+                ShaderProperty(me, mps, PropNameResolution, false);
+                ShaderProperty(me, mps, PropNameTimeScale, false);
+                ShaderProperty(me, mps, PropNameFixTime, false);
+                ShaderProperty(me, mps, PropNameFixedTime, false);
             }
 
             EditorGUILayout.LabelField("Lighting Parameters", EditorStyles.boldLabel);

@@ -6,16 +6,25 @@
 #include "twigl.cginc"
 
 
+//! Pseudo resolution.
+uniform float2 _Resolution;
+//! Pseudo resolution.
+uniform float _TimeScale;
+//! Fix time.
+uniform int _FixTime;
+//! Fixed time (in seconds).
+uniform float _FixedTime;
+
+//! Elapse time.
+static float t = (_FixTime ? _FixedTime : _Time.y) * _TimeScale;
 //! pseudo frame count.
-static float f = floor(_Time.y / 60.0);
+static float f = floor(t / 60.0);
 //! Mouse position.
 static float2 m = float2(0.0, 0.0);
 //! Resolution.
-static float2 r = float2(1280.0, 1280.0);
+static float2 r = _Resolution;
 //! Sound frequency.
 static float s = 0.0;
-//! Elapse time.
-static float t = _Time.y;
 
 
 /*!

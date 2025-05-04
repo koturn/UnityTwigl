@@ -3,6 +3,19 @@ Shader "koturn/Twigl/#SCRIPTNAME#"
     Properties
     {
         // ------------------------------------------------------------
+        [Header(Basic Parameters)]
+        [Space(8)]
+        [Vector2]
+        _Resolution ("Pseudo resolution", Vector) = (512.0, 512.0, 1.0, 1.0)
+
+        _TimeScale ("Time scale", Float) = 1.0
+
+        [MaterialToggle]
+        _FixTime ("Fix time", Int) = 0
+
+        _FixedTime ("Fixed time (in seconds)", Float) = 0.0
+
+        // ------------------------------------------------------------
         [Header(Lighting Parameters)]
         [Space(8)]
 
