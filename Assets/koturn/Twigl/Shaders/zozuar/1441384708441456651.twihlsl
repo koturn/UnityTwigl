@@ -1,0 +1,2 @@
+// https://x.com/zozuar/status/1441384708441456651
+float i,e,s,g,k=.01;for(o++;i++<1e2;g+=max(k,e*.2)){vec3 p=vec3((FC.xy-.6*r)/r.y*g+mul(rotate2D(t+g*.5),r/r)*.5,g+t/.3);e=.3-dot(p.xy,p.xy);for(s=2.;s<2e2;s/=.6)p.yz=mul(rotate2D(s),p.yz),e+=abs(dot(sin(p*s+t*s*.2)/s,p-p+1.));o+=o.w*min(e*o+(sin(vec4(1,2,3,1)-p.z*.3)*.6-.4),k)*k;}
