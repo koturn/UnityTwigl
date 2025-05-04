@@ -1,0 +1,2 @@
+// https://x.com/XorDev/status/1918714352946868488
+for(float i,z,d;i++<1e2;){vec3 p=z*normalize(FC.rgb*2.-r.xyy);p.yz=mul(rotate2D(.6),p.yz);p.xz=mul(rotate2D(.3),p.xz);for(d=2.;d<2e2;d+=d)p+=.5*sin(mul(rotate3D(d,r.xyy),p)*d+t*PI/10.)/d;z+=d=(.005+.2*abs(.6+p.y));o+=(cos(p.y/.05-vec4(0,1,2,3)*.4-3.)+1.7)/d/z;}o=tanh(o/1e4);
