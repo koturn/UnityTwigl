@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1922291638279270581
+// Dear @SphereVegas, let's talk
+for(float i,z,d;i++<1e2;o+=(cos(z+t+vec4(0,1,5,0))+1.2)/d/z){vec3 v,p=z*normalize(FC.rgb*2.-r.xyy);p.z+=9.;p.xz=mul(mat2(cos(.2*t+vec4(0,33,11,0))),p.xz);v=p;z+=d=.2*(.01+abs(dot(cos(p),cos(p/.6).yzx))-min(d=5.+cos(t)-length(p),-d*.2));}o=tanh(o/4e2);

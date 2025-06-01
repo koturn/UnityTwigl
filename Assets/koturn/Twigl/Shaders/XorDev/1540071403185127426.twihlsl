@@ -1,0 +1,2 @@
+// https://x.com/XorDev/status/1540071403185127426
+vec4 S,C=vec4(0,2,4,6);for(vec2 I=mul((FC.xy-r*.5),rotate2D(.1)),p,i=r/r;i.x<16.;i+=1./i)p=I+mul(i,rotate2D(2.4*i.x))*I.y/4e2,p=p/(r+r-p).y/.1+t,S=max(sin(p*4e1).y*sin(p.x*4e1+C)*clamp(cos((ceil(p.y)+fract(p.y)+C/1e2)/fsnoise(ceil(p-sin(p)))),.03,1.),.0),o+=S*S*S;o=sqrt(sqrt(o))*.5;

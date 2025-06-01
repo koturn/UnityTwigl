@@ -330,6 +330,67 @@ float3x3 rotate3D(float angle, float3 axis)
         a.z * a.z * r + c);
 }
 
+float asinh(float x)
+{
+    return log(x + sqrt(x * x + 1.0));
+}
+
+float2 asinh(float2 x)
+{
+    return log(x + sqrt(x * x + (1.0).xx));
+}
+
+float3 asinh(float3 x)
+{
+    return log(x + sqrt(x * x + (1.0).xxx));
+}
+
+float4 asinh(float4 x)
+{
+    return log(x + sqrt(x * x + (1.0).xxxx));
+}
+
+
+float acosh(float x)
+{
+    return log(x + sqrt(x * x - 1.0));
+}
+
+float2 acosh(float2 x)
+{
+    return log(x + sqrt(x * x - (1.0).xx));
+}
+
+float3 acosh(float3 x)
+{
+    return log(x + sqrt(x * x - (1.0).xxx));
+}
+
+float4 acosh(float4 x)
+{
+    return log(x + sqrt(x * x - (1.0).xxxx));
+}
+
+
+float atanh(float x)
+{
+    return 0.5 * log((1.0 + x) / (1.0 - x));
+}
+
+float2 atanh(float2 x)
+{
+    return 0.5 * log(((1.0).xx + x) / ((1.0).xx - x));
+}
+
+float3 atanh(float3 x)
+{
+    return 0.5 * log(((1.0).xxx + x) / ((1.0).xxx - x));
+}
+
+float4 atanh(float4 x)
+{
+    return 0.5 * log(((1.0).xxxx + x) / ((1.0).xxxx - x));
+}
 
 typedef float2 vec2;
 typedef float3 vec3;
@@ -343,7 +404,7 @@ typedef float4x4 mat4;
 #define fract(x) frac(x)
 #define mix(x, y, a) lerp((x), (y), (a))
 #define mod(x, y) ((x) - (y) * floor((x) / (y)))
-#define atan(x, y) atan2(x, y)
+#define atan(x, y) atan2((x), (y))
 
 
 #endif  // TWIGL_INCLUDED

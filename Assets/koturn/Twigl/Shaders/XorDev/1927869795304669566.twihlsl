@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1927869795304669566
+// "Titan"
+for(float i,d,z,s,b;i++<4e1;){vec3 p=z*normalize(FC.rgb*2.-r.xyx);p.yz=mul(.1*mat2(8,6,-6,8),p.yz);p.z+=8.;z+=d=.02+.2*abs(s=length(p)-6.);b=max(dot(p.xz,cos(t*.5+vec2(0,11)))-p.y+s,.1);o+=(cos(tanh(s+s)*3.+b*.3-vec4(0,1,2,0)-2.)+1.)/d/z*b;}o=tanh(o/4e3);

@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1927749355466895809
+// "Focus"
+vec2 p=FC.xy,f=(p-.5*r).yy/5e2;for(float i=1.;i<16.;i+=1./i)f=mul(mat2(0,.061,1.413, 0)-.737,f),o+=vec4(1.-f,1.+f)*max(cos(dot(cos(p=(FC.xy-r*.5+f*i)/r.y/.1-t*.5),sin(p/.4+t).yx)/.2+p.y/.6),0.);o=sqrt(tanh(o/60.));

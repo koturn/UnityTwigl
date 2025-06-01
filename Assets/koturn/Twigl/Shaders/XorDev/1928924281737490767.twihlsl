@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1928924281737490767
+// "Contours"
+for(float i,z=fract(dot(FC,FC)/9.),d;i++<3e1;o+=vec4(2,2,3,1)/d){vec3 p=z*normalize(FC.rgb*2.-r.xyy);p.z-=t;z+=d=.01+.3*abs(cos(dot(cos(p),sin(p.yzx/.6+.1*sin(p.zxy/.1))/.1)));}o=tanh(o/1e3);

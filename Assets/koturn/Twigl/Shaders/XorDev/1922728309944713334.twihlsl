@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1922728309944713334
+// "Waveform"
+for(float i,d,z,f;i++<9e1;o+=(cos(z*.5+t+vec4(0,2,4,3))+1.3)/d/z){vec3 p=z*normalize(FC.rgb*2.-r.xyy)+1.;f=max(-p.y,0.);p.y+=f+f;for(d=1.;d<3e1;d+=d)p.y+=cos(p*d+2.*t*cos(d)+z).x/d;z+=d=(.1*f+abs(p.y-1.)/(++f*f)+max(d=p.z+3.,-d*.1))/8.;}o=tanh(o/9e2);

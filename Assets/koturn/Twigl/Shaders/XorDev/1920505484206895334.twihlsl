@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1920505484206895334
+// CUBE
+for(float i,z,d,s;i++<1e2;){vec3 v,p=z*normalize(FC.rgb*2.-r.xyy);p.z+=2.;p.zx=mul(mat2(cos(.5*t+vec4(0,11,33,0))),p.zx);v=p;for(d=1.;d<i;d+=d)p+=sin(p.yzx*d)/d;z+=d=.2*max(.02+abs(s=cos(p.y*3.))/7.,length(v-clamp(v,-1.,1.)));o+=(cos(p.y/.5+s+s-vec4(9,4,5,0))+1.5)/d;}o=tanh(o*o/2e8);

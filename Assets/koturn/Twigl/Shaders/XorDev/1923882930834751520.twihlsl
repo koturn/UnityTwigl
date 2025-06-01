@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1923882930834751520
+// "Corridor"
+for(float i,d,z;i++<3e1;){vec3 s=normalize(FC.rgb*2.-r.xyy),p=z*s,c=abs(s);c/=max(c.x,c.y);c.z+=t;p.z-=t;s=++p;z+=d=.01+length((p.xy=abs(mod(p.xy-2.,4.)-2.))-1.+cos(p.z/vec2(PI,2)))+.1*exp(dot(cos(ceil(c/=.3)),sin(c/.6).yzx))*length(p-s);o.rgb+=(cos(p)+1.4)/d/z;}o=tanh(o/7e1);

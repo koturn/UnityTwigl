@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1926363376424259995
+// "Hyperbolic"
+vec2 p=ceil(atanh(FC.xy*2./r-1.)/.1);o=mod(p.xxxx+p.y,2.);

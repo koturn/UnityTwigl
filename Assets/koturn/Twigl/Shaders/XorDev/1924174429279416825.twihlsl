@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1924174429279416825
+// "Ascend"
+for(float i,d,z;i++<3e1;){vec3 s=normalize(FC.rgb*2.1-r.xyy),p=z*s,c=abs(s);c/=c.y;c.z+=t;p.z-=t;s=++p;p.y=abs(mod(p.y-2.,4.)-2.);z+=d=.01+.5*length(sin(p+p).xz+p.y*.4)+.1*exp(sin(length(sin(c))*40.+p.z))*length(p-s);o.rgb+=(sin(p*.6)+1.1)/d/z;}o=tanh(o/5e1);

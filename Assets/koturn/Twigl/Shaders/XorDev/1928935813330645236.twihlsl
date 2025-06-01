@@ -1,0 +1,5 @@
+// https://x.com/XorDev/status/1928935813330645236
+// "Balatro" in 345 chars
+#define M max(0.,1.
+float i,l,a,b;vec2 v=ceil(FC.xy/r.y*3e2)/18.-8.*r/r.y,u=mul(mat2(cos(vec4(4,37,15,4)+.1*t-length(v)/6.)),v);for(v=u+u.yx;i++<5.;l=length(u-=cos(u+u.yx)-sin(u.x*.7-u.y))/7.)v+=sin(max(u,u.yx))+u,
+u+=.5*sin(v/vec2(3,1)+.2*t).yx;a=M-abs(l-2.))+.1,b=M-l);o=a/vec4(1,4,4,1)+vec4(0,.4,.7,1)*b+M-a-b)/vec4(17,8,7,1)+M+a-2.)+M+b+b-2.6);

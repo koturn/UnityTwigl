@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1920508035954249883
+// "Orb"
+for(float i,z,d,s;i++<1e2;){vec3 v,p=z*normalize(FC.rgb*2.-r.xyy);p.z+=2.;p.zx=mul(mat2(cos(p.y+t+vec4(0,11,33,0))),p.zx);v=p;for(d=1.;d<i;d+=d)p+=sin(p.yzx*d)/d;z+=d=.2*max(.03+abs(s=cos(3.*p.y))*.1,length(v)-1.);o+=(cos(s/.4+p.y+vec4(6,1,3,0))+1.5)/d/z;}o=tanh(o/1e4);

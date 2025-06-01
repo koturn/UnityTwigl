@@ -1,0 +1,3 @@
+// https://x.com/XorDev/status/1922025965275824484
+// "LED Cube 2"
+for(float i,z,d,s,c;i++<5e1;){vec3 p=z*normalize(FC.rgb*2.-r.xyy);p.z+=8.;p.xz=mul(mat2(cos(t/4.+vec4(0,33,11,0))),p.xz);z+=d=max(length(cos(p/.2))/8.,length(clamp(p,-3.,3.)-p));o+=(cos(dot(cos(p),sin(p/.6).yzx)+t+vec4(0,1,2,3))+1.1)/d/z;}o=tanh(o/7e1);

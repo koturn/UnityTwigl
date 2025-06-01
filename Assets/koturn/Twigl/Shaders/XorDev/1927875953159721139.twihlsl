@@ -1,0 +1,2 @@
+// "Atmosphere"
+for(float i,d,z,s;i++<4e1;){vec3 p=z*normalize(FC.rgb*2.-r.xyx);p.yz=mul(.1*mat2(8,6,-6,8),p.yz);p.z+=8.;s=length(p),z+=d=.01+.2*abs(s-6.);o+=(cos(tanh(s+s-12.)*6.-vec4(0,1,2,0)-2.)+1.)/d*pow(1.-p.z/s,2.)/z;}o=tanh(.2*o);
